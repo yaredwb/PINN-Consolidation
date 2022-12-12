@@ -1,6 +1,5 @@
 import numpy as np 
-import matplotlib.pyplot as plt 
-
+import matplotlib.pyplot as plt
 
 cv = 0.1
 Nz = 100
@@ -27,12 +26,6 @@ for i in range(1, len(t)):
     sum += (term1 * term2 * term3)
   u[1:-1,i] = sum
 
-#for i in range(len(t)):
-  #plt.plot(u[:,i], z)
-
-#np.savez_compressed('test.npz', z=z, t=t[1:], u=u[:,1:])
-
-
 # Solution for drained top and undrained bottom
 u2 = np.zeros((Nz, Nt))
 z2 = np.linspace(0, H, Nz)
@@ -53,10 +46,7 @@ for i in range(1, len(t)):
     sum2 += (term4 * term5 * term6)
   u2[0:-1,i] = (4 / np.pi) * sum2
 
-# for i in range(len(t2)):
-#   plt.plot(u2[:,i], z2)
-
-#np.savez_compressed('drained_top.npz', z=z2, t=t2[1:], u=u2[:,1:])
+np.savez_compressed('drained_top.npz', z=z2, t=t2[1:], u=u2[:,1:])
 
 # Solution for drained top and bottom boundaries
 u3 = np.zeros((Nz, Nt))
